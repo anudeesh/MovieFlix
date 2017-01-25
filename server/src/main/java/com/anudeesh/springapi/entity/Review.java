@@ -5,8 +5,14 @@ import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name="Review.findReviews",query="SELECT r from Review r WHERE r.movie=:rMovie"),
+	@NamedQuery(name="Review.findAvgRating",query="SELECT AVG(r.rating) from Review r WHERE r.movie=:rMovie")
+})
 public class Review {
 	@Id
 	private String id;
@@ -60,5 +66,13 @@ public class Review {
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
+
+	@Override
+	public String toString() {
+		return "Review [id=" + id + ", rating=" + rating + ", comment=" + comment + ", user=" + user + ", movie="
+				+ movie + "]";
+	}
+	
+	
 	
 }

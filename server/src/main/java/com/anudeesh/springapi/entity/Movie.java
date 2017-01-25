@@ -13,7 +13,7 @@ import javax.persistence.NamedQuery;
 	@NamedQuery(name="Movie.findAll",query="SELECT m from Movie m"),
 	@NamedQuery(name="Movie.findByType",query="SELECT m from Movie m WHERE m.type=:mType"),
 	@NamedQuery(name="Movie.findByYear",query="SELECT m from Movie m WHERE m.year=:mYear"),
-	@NamedQuery(name="Movie.findByGenre",query="SELECT m from Movie m WHERE m.genre=:mGenre"),
+	@NamedQuery(name="Movie.findByGenre",query="SELECT m from Movie m WHERE m.genre LIKE :mGenre"),
 	@NamedQuery(name="Movie.findByTitle",query="SELECT m from Movie m WHERE m.title=:mTitle"),
 	@NamedQuery(name="Movie.findTopRated",query="SELECT m from Movie m WHERE m.type=:mType AND m.imdbRating=(SELECT MAX(n.imdbRating) from Movie n)"),
 	//@NamedQuery(name="Movie.sortByRatings",query="SELECT m from Movie m ORDER BY m.imdbRating DESC"),

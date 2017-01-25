@@ -45,6 +45,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 
 	@Override
 	public List<Movie> findByGenre(String genre) {
+		genre="%"+genre+"%";
 		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByGenre",Movie.class);
 		query.setParameter("mGenre", genre);
 		List<Movie> movies = query.getResultList();

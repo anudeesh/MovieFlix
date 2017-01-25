@@ -26,7 +26,7 @@ public class MovieController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "{id}")
 	public Movie findOne(@PathVariable("id") String mID) {
-		return null;
+		return service.findOne(mID);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/type/{type}")
